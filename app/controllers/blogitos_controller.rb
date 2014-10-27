@@ -1,0 +1,2 @@
+class BlogitosController < ApplicationController
+end

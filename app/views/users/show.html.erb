@@ -1,0 +1,17 @@
+<h1> Account for <% @user.username %></h1>
+
+<h3>altblog</h3>
+
+<div class="blogitos">
+
+  <ul>
+    <% @user.thoughts.each do |thought| %>
+      <li class="uno_blogito">
+        <%= blogito.el_blogito %>
+        <br/>
+        On <%= blogito.created_at %> by <%= blogito.user.username %>
+      </li>
+      <% end %>
+    </ul>
+
+  </div>

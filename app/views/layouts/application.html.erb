@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Altblog</title>
+  <title>DeepThoughts</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
+  <%= link_to "Home", root_path %>
+  <% if @current_user %>
+    <%= link_to "Sign Out", sign_out_path, method: :delete %>
+  <% end %>
 <%= yield %>
+
+
+<footer>
+  <% User.all.each do |user| %>
+    <%= link_to user.username, profile_path(username: user.username) %><br/>
+  <% end %>
+</footer>
+
 
 </body>
 </html>
